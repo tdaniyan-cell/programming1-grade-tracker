@@ -20,6 +20,27 @@ class GradeTracker:
     def filter_by_month(self, month):
             return [a for a in self.assignments if a.due_date[:7] == month]
 
+    def overall_average(self):
+        if not self.assignments:
+            return None
+        return sum(a.percentage for a in self.assignments) / len(self.assignments)
+
+    def highest_scoring(self):
+        if not self.assignments:
+            return None
+        return max(self.assignments, key=lambda a: a.percentage)
+
+    def lowest_scoring(self):
+        if not self.assignments:
+            return None
+        return min(self.assignments, key=lambda a: a.percentage)
+
+    def per_subject_averages(self):
+        subjects = {}
+        for a in self.assignments:
+            subjects.setdefault(a.subject, []).append(a.percentage)
+        return {subj: sum(pcts) / len(pcts) for subj, pcts in subjects.items()}
+
 if __name__ == "__main__":
     from assignment import Homework, Exam
 
@@ -38,3 +59,10 @@ if __name__ == "__main__":
     print("--- Only October ---")
     for a in gt.filter_by_month("2026-10"):
         print(a)
+
+    print("--- Summary ---")
+    print("Overall average:", gt.overall_average())
+    print("Highest:", gt.highest_scoring())
+    print("Lowest:", gt.lowest_scoring())
+    print("--- Per-subject averages ---")
+    print(gt.per_subject_averages())
