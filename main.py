@@ -29,17 +29,25 @@ def main():
             tracker.add_assignment(homework)
             print("Homework added!")
 
+        elif choice == "2":
+            subject = input("Subject: ")
+            title = input("Title: ")
+            score = input("Score: ")
+            max_score = input("Max score: ")
+            due_date = input("Due date (YYYY-MM-DD): ")
+
+            exam = Exam(subject, title, score, max_score, due_date)
+            tracker.add_assignment(exam)
+            print("Exam added!")
+
         elif choice == "3":
             tracker.list_assignments()
-
+        
         elif choice == "0":
             print("Goodbye!")
             break
         else:
             print("You choose:", choice)
-
-        
-
 
 if __name__ == "__main__":
     main()
