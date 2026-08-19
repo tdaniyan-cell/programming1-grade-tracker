@@ -62,6 +62,12 @@ def main():
             for a in results:
                 print(a)
 
+        elif choice == "5":
+            print("Overall average:", tracker.overall_average())
+            print("Per-student average:", tracker.per_subject_averages())
+            print("Highest scoring:", tracker.highest_scoring())
+            print("Lowest scoring:", tracker.lowest_scoring())
+
         elif choice == "3":
             tracker.list_assignments()
         
