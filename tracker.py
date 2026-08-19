@@ -12,10 +12,10 @@ class GradeTracker:
             print(a)
 
     def filter_by_type(self, atype):
-        return [a for a in self.assignments if a.type == atype]
+        return [a for a in self.assignments if a.type == atype.lower()]
 
     def filter_by_subject(self, subject):
-        return [a for a in self.assignments if a.subject == subject]
+        return [a for a in self.assignments if a.subject == subject.lower()]
 
     def filter_by_month(self, month):
             return [a for a in self.assignments if a.due_date[:7] == month]

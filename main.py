@@ -40,6 +40,28 @@ def main():
             tracker.add_assignment(exam)
             print("Exam added!")
 
+        elif choice == "4":
+            print("Filter by: (a) subject (b) type (c) month")
+            sub_choice = input("Choose: ")
+
+            if sub_choice == "a":
+                subject = input("Enter subject: ")
+                results = tracker.filter_by_subject(subject)
+
+            elif sub_choice == "b":
+                atype = input("Enter type (homework/exam): ")
+                results = tracker.filter_by_type(atype)
+
+            elif sub_choice == "c":
+                month = input("Enter month (YYYY-MM): ")
+                results = tracker.filter_by_month(month)
+            else:
+                print("Invalid filter choice")
+                results = []
+
+            for a in results:
+                print(a)
+
         elif choice == "3":
             tracker.list_assignments()
         
