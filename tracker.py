@@ -44,6 +44,12 @@ class GradeTracker:
     def low_score_warnings(self, threshold=50.0):
         return [a for a in self.assignments if a.percentage < threshold]
 
+    def top_subject(self):
+        averages = self.per_subject_averages()
+        if not averages:
+            return None
+        return max(averages.items(), key=lambda item: item[1])
+
 if __name__ == "__main__":
     from assignment import Homework, Exam
 

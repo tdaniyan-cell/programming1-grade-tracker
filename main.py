@@ -82,6 +82,10 @@ def main():
                 for a in warnings:
                     print(a)
 
+            top = tracker.top_subject()
+            if top:
+                print(f"\nTop performing subject: {top[0]} ({top[1]:.1f}%)")
+
         elif choice == "3":
             tracker.list_assignments()
         
