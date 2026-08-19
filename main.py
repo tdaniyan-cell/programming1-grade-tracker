@@ -83,7 +83,7 @@ def main():
             print("Goodbye!")
             break
         else:
-            print("You choose:", choice)
+            print("Invalid option. Please choose a number from the menu.")
 
 if __name__ == "__main__":
     main()
