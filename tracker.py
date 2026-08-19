@@ -41,6 +41,9 @@ class GradeTracker:
             subjects.setdefault(a.subject, []).append(a.percentage)
         return {subj: sum(pcts) / len(pcts) for subj, pcts in subjects.items()}
 
+    def low_score_warnings(self, threshold=50.0):
+        return [a for a in self.assignments if a.percentage < threshold]
+
 if __name__ == "__main__":
     from assignment import Homework, Exam
 

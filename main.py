@@ -76,6 +76,12 @@ def main():
             print("Highest scoring:", tracker.highest_scoring())
             print("Lowest scoring:", tracker.lowest_scoring())
 
+            warnings = tracker.low_score_warnings()
+            if warnings:
+                print("\n Low-score warnings (below 50%):")
+                for a in warnings:
+                    print(a)
+
         elif choice == "3":
             tracker.list_assignments()
         
