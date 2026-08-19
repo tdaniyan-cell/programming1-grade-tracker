@@ -25,9 +25,13 @@ def main():
             max_score = input("Max score: ")
             due_date = input("Due date (YYYY-MM-DD): ")
 
-            homework = Homework(subject, title, score, max_score, due_date)
-            tracker.add_assignment(homework)
-            print("Homework added!")
+            try:
+              homework = Homework(subject, title, score, max_score, due_date)
+              tracker.add_assignment(homework)
+              print("Homework added!")
+
+            except ValueError as e:
+                print("Could not add homework:", e)
 
         elif choice == "2":
             subject = input("Subject: ")
@@ -36,9 +40,13 @@ def main():
             max_score = input("Max score: ")
             due_date = input("Due date (YYYY-MM-DD): ")
 
-            exam = Exam(subject, title, score, max_score, due_date)
-            tracker.add_assignment(exam)
-            print("Exam added!")
+            try:
+                exam = Exam(subject, title, score, max_score, due_date)
+                tracker.add_assignment(exam)
+                print("Exam added!")
+
+            except ValueError as e:
+                print("Could not add exam", e)
 
         elif choice == "4":
             print("Filter by: (a) subject (b) type (c) month")
